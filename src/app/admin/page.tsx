@@ -79,6 +79,7 @@ const AdminPage = () => {
         const response = await fetch("/api/admin/orders", {
           method: "GET",
           cache: "no-store",
+          next: {revalidate: 10}
         });
 
         if (response.ok) {
@@ -220,11 +221,12 @@ const AdminPage = () => {
   };
 
   const fetchUsers = async () => {
-    setLoading(true); // Indicate loading state
+    setLoading(true); 
     try {
       const response = await fetch("/api/admin/users", {
         method: "GET",
         cache: "no-store",
+        next: { revalidate: 10 },
       });
 
       if (!response.ok) {
