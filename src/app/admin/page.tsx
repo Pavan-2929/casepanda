@@ -76,18 +76,22 @@ const AdminPage = () => {
     const fetchOrders = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("/api/admin/orders", {
-          headers: {
-            "Cache-Control": "no-cache",
-            Pragma: "no-cache",
-          },
+        const response = await fetch("/api/admin/orders", {
+          method: "GET",
+          cache: "no-store",
         });
-        setOrders(response.data);
-        calculateRevenue(response.data);
-        calulateColor(response.data);
-        calculateModel(response.data);
-        calulateDeliveryStatus(response.data);
-        calculateVariants(response.data);
+
+        if (response.ok) {
+          const ordersData = await response.json();
+          setOrders(ordersData);
+          calculateRevenue(ordersData);
+          calulateColor(ordersData);
+          calculateModel(ordersData);
+          calulateDeliveryStatus(ordersData);
+          calculateVariants(ordersData);
+        } else {
+          console.error("Failed to fetch orders data");
+        }
       } catch (error) {
         console.error(error);
       } finally {
@@ -216,17 +220,23 @@ const AdminPage = () => {
   };
 
   const fetchUsers = async () => {
-    setLoading(true);
+    setLoading(true); // Indicate loading state
     try {
-      const response = await axios.get("/api/admin/users", {
-        headers: {
-          "Cache-Control": "no-cache",
-          Pragma: "no-cache",
-        },
+      const response = await fetch("/api/admin/users", {
+        method: "GET",
+        cache: "no-store",
       });
-      setUsers(response.data);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setUsers(data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
