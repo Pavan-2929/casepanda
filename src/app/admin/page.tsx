@@ -3,7 +3,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { BASE_PRICE, formatPrice } from "@/lib/utils";
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminOrders from "./AdminOrders";
 import ModelChart from "./charts/ModelChart";
 import OrderStatus from "./charts/OrderStatus";
@@ -73,7 +73,7 @@ const AdminPage = () => {
     },
   ]);
 
-  const fetchOrders = useCallback(async () => {
+  const fetchOrders = async () => {
     setLoading(true);
     try {
       const response = await axios.get("/api/admin/orders");
@@ -88,7 +88,7 @@ const AdminPage = () => {
     } finally {
       setLoading(false);
     }
-  }, [setLoading]);
+  };
 
   const calculateVariants = (orders: any) => {
     const variantsCount = {
@@ -139,7 +139,8 @@ const AdminPage = () => {
     setFinishes(finishCount);
   };
 
-  console.log(orders);
+  console.log(materials);
+  console.log(finishes);
 
   const calulateDeliveryStatus = (orders: any) => {
     const deliveryStatusCount = [
@@ -209,7 +210,7 @@ const AdminPage = () => {
     setColorsLength(colorsCount);
   };
 
-  const fetchUsers = useCallback(async () => {
+  const fetchUsers = async () => {
     setLoading(true);
     try {
       const response = await axios.get("/api/admin/users");
@@ -217,7 +218,7 @@ const AdminPage = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [setLoading]);
+  };
 
   const calculateRevenue = (orders: any) => {
     if (orders) {
@@ -233,7 +234,7 @@ const AdminPage = () => {
   useEffect(() => {
     fetchOrders();
     fetchUsers();
-  }, [fetchOrders, fetchUsers]);
+  }, []);
 
   if (currentUser.email !== "casepanda29@gmail.com") {
     router.push("/");
@@ -241,6 +242,10 @@ const AdminPage = () => {
 
   const [upperCounter, setUpperCounter] = useState(false);
   const [lowerCounter, setLowerCounter] = useState(false);
+
+
+  console.log(colorsLength);
+  
   return (
     <>
       <div className="max-w-7xl lg:block hidden mx-auto px-4 lg:px-12 my-10">

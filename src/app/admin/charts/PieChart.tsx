@@ -1,12 +1,7 @@
+import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-];
-
-const COLORS = ["#18181B", "#172554", "#450A0A"];
+const COLORS = ["#18181B", "#450A0A", "#172554"];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -16,6 +11,7 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
+  index,
 }: any) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -50,11 +46,10 @@ export default function PieChartComponent({
         fill="#8884d8"
         dataKey="value"
       >
-        {data.map((entry, index) => (
+        {colorsLength.map((entry: any, index: any) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
-      
     </PieChart>
   );
 }
