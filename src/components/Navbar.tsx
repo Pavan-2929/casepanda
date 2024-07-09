@@ -98,12 +98,6 @@ const Navbar = () => {
           ) : (
             <div>
               <Link
-                href="/sign-up"
-                className="hover:bg-gray-200 px-3 py-1 rounded-md transition-all duration-200"
-              >
-                Sign-up
-              </Link>
-              <Link
                 className="hover:bg-gray-200 px-3 py-1 rounded-md transition-all duration-200"
                 href="/sign-in"
               >

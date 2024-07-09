@@ -271,11 +271,11 @@ const PreviewPage = () => {
             {" "}
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
               <div className="bg-gray-100 p-6 md:p-10 rounded-lg shadow-lg md:w-[40vw] w-full">
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex flex-col justify-between items-center mb-6">
                   <h2 className="text-2xl font-semibold">
                     Please fill the address details before checkout
                   </h2>
-                  <p className="text-lg font-medium mt-2 text-zinc-600">
+                  <p className="text-lg font-medium mt-4 text-zinc-600">
                     Do not worry your data is safe
                   </p>
                 </div>

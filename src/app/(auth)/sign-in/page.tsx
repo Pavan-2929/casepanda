@@ -45,8 +45,8 @@ const SignInPage = () => {
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: "casepanda29@gmail.com",
+      password: "123456",
     },
   });
 
@@ -129,8 +129,11 @@ const SignInPage = () => {
         >
           <div className="text-center">
             <h1 className="text-3xl font-bold">CasePanda</h1>
-            <p className="text-gray-600 font-semibold my-4">
-              Sign-in to start your joureny
+          </div>
+          <div className="w-full max-w-md py-8">
+            <p className="text-zinc-600 font-medium text-center text-sm mb-4">
+              Below are demo credentials for testing and checking the admin
+              page | Feel free to use your own custom credentials.
             </p>
           </div>
           <Form {...form}>
