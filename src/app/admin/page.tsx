@@ -76,7 +76,11 @@ const AdminPage = () => {
     const fetchOrders = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("/api/admin/orders");
+        const response = await axios.get("/api/admin/orders", {
+          headers: {
+            "Cache-Control": "no-store",
+          },
+        });
         setOrders(response.data);
         calculateRevenue(response.data);
         calulateColor(response.data);
@@ -213,7 +217,11 @@ const AdminPage = () => {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("/api/admin/users");
+      const response = await axios.get("/api/admin/users", {
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      });
       setUsers(response.data);
     } catch (error) {
       console.log(error);
