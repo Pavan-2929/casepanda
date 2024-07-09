@@ -242,7 +242,7 @@ const AdminPage = () => {
   const [upperCounter, setUpperCounter] = useState(false);
   const [lowerCounter, setLowerCounter] = useState(false);
 
-  console.log(colorsLength);
+  console.log(orders);
 
   if (loading) {
     return (

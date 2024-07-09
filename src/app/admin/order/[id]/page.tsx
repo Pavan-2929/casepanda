@@ -50,8 +50,6 @@ const AdminOrderPage = ({ params }: any) => {
     );
   }
 
-  console.log(deliveryStatus);
-
   const deliveryStatusData = ["Pending", "Confirmed", "Shipped", "Delivered"];
 
   const handleStatus = async (status: string) => {
