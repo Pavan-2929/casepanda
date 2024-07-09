@@ -72,13 +72,17 @@ const AdminPage = () => {
       value: 0,
     },
   ]);
+
   useEffect(() => {
     const fetchOrders = async () => {
       setLoading(true);
       try {
         const response = await fetch("/api/admin/orders", {
           method: "GET",
-          next: {revalidate: 10}
+          next: { revalidate: 10 },
+          headers: {
+            "Cache-Control": "no-store",
+          },
         });
 
         if (response.ok) {
@@ -90,10 +94,10 @@ const AdminPage = () => {
           calulateDeliveryStatus(ordersData);
           calculateVariants(ordersData);
         } else {
-          console.error("Failed to fetch orders data");
+          console.error("Failed to fetch orders data", response.status);
         }
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching orders data", error);
       } finally {
         setLoading(false);
       }
@@ -220,11 +224,14 @@ const AdminPage = () => {
   };
 
   const fetchUsers = async () => {
-    setLoading(true); 
+    setLoading(true);
     try {
       const response = await fetch("/api/admin/users", {
         method: "GET",
         next: { revalidate: 10 },
+        headers: {
+          "Cache-Control": "no-store",
+        },
       });
 
       if (!response.ok) {
