@@ -72,23 +72,26 @@ const AdminPage = () => {
       value: 0,
     },
   ]);
+  useEffect(() => {
+    const fetchOrders = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("/api/admin/orders");
+        setOrders(response.data);
+        calculateRevenue(response.data);
+        calulateColor(response.data);
+        calculateModel(response.data);
+        calulateDeliveryStatus(response.data);
+        calculateVariants(response.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const fetchOrders = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get("/api/admin/orders");
-      setOrders(response.data);
-      calculateRevenue(response.data);
-      calulateColor(response.data);
-      calculateModel(response.data);
-      calulateDeliveryStatus(response.data);
-      calculateVariants(response.data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    fetchOrders();
+  }, []);
 
   const calculateVariants = (orders: any) => {
     const variantsCount = {
@@ -229,10 +232,6 @@ const AdminPage = () => {
   };
 
   useEffect(() => {
-    fetchOrders();
-  }, []);
-
-  useEffect(() => {
     fetchUsers();
   }, []);
 
@@ -244,6 +243,14 @@ const AdminPage = () => {
   const [lowerCounter, setLowerCounter] = useState(false);
 
   console.log(colorsLength);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center my-20 min-h-screen">
+        <Loader2 className="animate-spin h-12 w-12 text-gray-500" />
+      </div>
+    );
+  }
 
   return (
     <>
