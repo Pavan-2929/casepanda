@@ -1,9 +1,10 @@
 import OrderModel from "@/models/OrderModel";
 import dbConnect from "@/config/dbConnect";
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
   dbConnect();
   try {
+    const { email } = await request.json();
     const orders = await OrderModel.find();
 
     return Response.json(orders);
