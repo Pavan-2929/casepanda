@@ -78,7 +78,6 @@ const AdminPage = () => {
       try {
         const response = await fetch("/api/admin/orders", {
           method: "GET",
-          cache: "no-store",
           next: {revalidate: 10}
         });
 
@@ -225,7 +224,6 @@ const AdminPage = () => {
     try {
       const response = await fetch("/api/admin/users", {
         method: "GET",
-        cache: "no-store",
         next: { revalidate: 10 },
       });
 
