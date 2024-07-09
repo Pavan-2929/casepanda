@@ -60,7 +60,7 @@ const VerifyPage = () => {
     if (!email) {
       redirect("/");
     }
-  }, []);
+  }, [email]);
 
   return (
     <div className="bg-gray-100 min-h-[91vh] flex justify-center items-center">

@@ -3,7 +3,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { BASE_PRICE, formatPrice } from "@/lib/utils";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import AdminOrders from "./AdminOrders";
 import ModelChart from "./charts/ModelChart";
 import OrderStatus from "./charts/OrderStatus";
@@ -73,7 +73,7 @@ const AdminPage = () => {
     },
   ]);
 
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     setLoading(true);
     try {
       const response = await axios.get("/api/admin/orders");
@@ -88,7 +88,7 @@ const AdminPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [setLoading]);
 
   const calculateVariants = (orders: any) => {
     const variantsCount = {
@@ -139,8 +139,7 @@ const AdminPage = () => {
     setFinishes(finishCount);
   };
 
-  console.log(materials);
-  console.log(finishes);
+  console.log(orders);
 
   const calulateDeliveryStatus = (orders: any) => {
     const deliveryStatusCount = [
@@ -210,7 +209,7 @@ const AdminPage = () => {
     setColorsLength(colorsCount);
   };
 
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     setLoading(true);
     try {
       const response = await axios.get("/api/admin/users");
@@ -218,7 +217,7 @@ const AdminPage = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [setLoading]);
 
   const calculateRevenue = (orders: any) => {
     if (orders) {
@@ -234,7 +233,7 @@ const AdminPage = () => {
   useEffect(() => {
     fetchOrders();
     fetchUsers();
-  }, []);
+  }, [fetchOrders, fetchUsers]);
 
   if (currentUser.email !== "casepanda29@gmail.com") {
     router.push("/");
