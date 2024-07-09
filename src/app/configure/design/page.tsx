@@ -44,16 +44,7 @@ const DesignPage = () => {
     dispatch(setProductData({ productData: options }));
     router.push("/configure/preview");
   };
-
-  if (redirecting) {
-    return (
-      <div className="flex justify-center items-center my-20 min-h-[80vh] gap-x-2 text-xl font-semibold">
-        <Loader2 className="animate-spin h-12 w-12 text-gray-500" />
-        Redirecting | Please wait
-      </div>
-    );
-  }
-
+  
   return (
     <div className="grid lg:grid-cols-2 grid-cols-1 my-20">
       <motion.div
