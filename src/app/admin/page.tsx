@@ -139,9 +139,6 @@ const AdminPage = () => {
     setFinishes(finishCount);
   };
 
-  console.log(materials);
-  console.log(finishes);
-
   const calulateDeliveryStatus = (orders: any) => {
     const deliveryStatusCount = [
       { name: "Pending", value: 0 },
@@ -233,6 +230,9 @@ const AdminPage = () => {
 
   useEffect(() => {
     fetchOrders();
+  }, []);
+
+  useEffect(() => {
     fetchUsers();
   }, []);
 
