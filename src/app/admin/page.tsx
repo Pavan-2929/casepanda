@@ -78,11 +78,8 @@ const AdminPage = () => {
       setLoading(true);
       try {
         const response = await fetch("/api/admin/orders", {
-          method: "GET",
           next: { revalidate: 10 },
-          headers: {
-            "Cache-Control": "no-store",
-          },
+          method: "GET",
         });
 
         if (response.ok) {
@@ -227,11 +224,8 @@ const AdminPage = () => {
     setLoading(true);
     try {
       const response = await fetch("/api/admin/users", {
-        method: "GET",
         next: { revalidate: 10 },
-        headers: {
-          "Cache-Control": "no-store",
-        },
+        method: "GET",
       });
 
       if (!response.ok) {
