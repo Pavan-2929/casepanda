@@ -77,12 +77,12 @@ const AdminPage = () => {
     setLoading(true);
     try {
       const response = await axios.get("/api/admin/orders");
-      setOrders(response.data.orders);
-      calculateRevenue(response.data.orders);
-      calulateColor(response.data.orders);
-      calculateModel(response.data.orders);
-      calulateDeliveryStatus(response.data.orders);
-      calculateVariants(response.data.orders);
+      setOrders(response.data);
+      calculateRevenue(response.data);
+      calulateColor(response.data);
+      calculateModel(response.data);
+      calulateDeliveryStatus(response.data);
+      calculateVariants(response.data);
     } catch (error) {
       console.error(error);
     } finally {
@@ -243,9 +243,8 @@ const AdminPage = () => {
   const [upperCounter, setUpperCounter] = useState(false);
   const [lowerCounter, setLowerCounter] = useState(false);
 
-
   console.log(colorsLength);
-  
+
   return (
     <>
       <div className="max-w-7xl lg:block hidden mx-auto px-4 lg:px-12 my-10">

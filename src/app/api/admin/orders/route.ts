@@ -6,26 +6,9 @@ export async function GET(request: Request) {
   try {
     const orders = await OrderModel.find();
 
-    return Response.json(
-      {
-        success: false,
-        messsage: "order fetched successfully",
-        orders,
-      },
-      {
-        status: 200,
-      }
-    );
+    return Response.json(orders);
   } catch (error) {
     console.log(error);
-    return Response.json(
-      {
-        success: false,
-        message: "An error occurred while fetching orders",
-      },
-      {
-        status: 500,
-      }
-    );
+    return Response.json(error);
   }
 }
