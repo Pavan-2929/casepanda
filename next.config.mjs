@@ -2,7 +2,7 @@
 const nextConfig = {
   headers: () => [
     {
-      source: "/admin",
+      source: "/api/admin/orders",
       headers: [
         {
           key: "Cache-Control",
