@@ -8,6 +8,7 @@ import { Loader2 } from "lucide-react";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 const NewPasswordPage = () => {
   const [password, setPassword] = useState("");
@@ -48,7 +49,12 @@ const NewPasswordPage = () => {
 
   return (
     <div className="bg-gray-100 min-h-[91vh] flex justify-center items-center">
-      <div className="bg-white px-4 sm:px-14 shadow-md rounded-lg py-8 w-full max-w-lg">
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+         className="bg-white px-4 sm:px-14 shadow-md rounded-lg py-8 w-full max-w-lg"
+      >
         <div className="text-center">
           <h1 className="text-3xl font-bold">Casepanda</h1>
           <p className="text-gray-600 font-semibold my-4">
@@ -74,7 +80,7 @@ const NewPasswordPage = () => {
             )}
           </Button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

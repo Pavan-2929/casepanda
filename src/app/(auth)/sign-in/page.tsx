@@ -31,6 +31,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { motion } from "framer-motion";
 
 const SignInPage = () => {
   const { toast } = useToast();
@@ -120,7 +121,12 @@ const SignInPage = () => {
   return (
     <>
       <div className="bg-gray-100 min-h-[91vh] flex justify-center items-center">
-        <div className="bg-white px-4 sm:px-14 shadow-md rounded-lg py-8 w-full max-w-lg">
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-white px-4 sm:px-14 shadow-md rounded-lg py-8 w-full max-w-lg"
+        >
           <div className="text-center">
             <h1 className="text-3xl font-bold">CasePanda</h1>
             <p className="text-gray-600 font-semibold my-4">
@@ -209,7 +215,7 @@ const SignInPage = () => {
               Sign-In
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );

@@ -54,7 +54,7 @@ const Navbar = () => {
               <ArrowRight />
             </Button>
           </Link>
-          {/* {currentUser && currentUser?.email === "casepanda29@gmail.com" ? (
+          {currentUser && currentUser?.email === "casepanda29@gmail.com" ? (
             <Link
               href="/admin"
               className="text-primary px-3 rounded-md transition-all duration-200"
@@ -67,7 +67,7 @@ const Navbar = () => {
                 Admin
               </Button>
             </Link>
-          ) : null} */}
+          ) : null}
 
           {currentUser ? (
             <div>
