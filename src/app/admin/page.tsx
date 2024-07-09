@@ -78,7 +78,8 @@ const AdminPage = () => {
       try {
         const response = await axios.get("/api/admin/orders", {
           headers: {
-            "Cache-Control": "no-store",
+            "Cache-Control": "no-cache",
+            Pragma: "no-cache",
           },
         });
         setOrders(response.data);
@@ -219,7 +220,8 @@ const AdminPage = () => {
     try {
       const response = await axios.get("/api/admin/users", {
         headers: {
-          "Cache-Control": "no-store",
+          "Cache-Control": "no-cache",
+          Pragma: "no-cache",
         },
       });
       setUsers(response.data);
