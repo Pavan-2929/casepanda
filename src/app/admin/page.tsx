@@ -352,7 +352,7 @@ const AdminPage = () => {
           >
             <ModelChart modelLength={modelLength} />
             <p className="text-center text-xl mt-6 font-semibold text-primary">
-              Colors Chart
+              Models Chart
             </p>
           </motion.div>
           <div className="border border-gray-300 my-20" />
