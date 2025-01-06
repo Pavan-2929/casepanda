@@ -47,7 +47,6 @@ const ProfilePage = () => {
         description: response.data.message,
       });
       router.back();
-      console.log(response);
     } catch (error) {
       console.log(error);
       toast({
@@ -66,7 +65,6 @@ const ProfilePage = () => {
     }
   }, [currentUser]);
 
-  console.log(address);
 
   return (
     <div className="bg-gray-100 h-full mx-auto flex flex-col items-center lg:p-16">

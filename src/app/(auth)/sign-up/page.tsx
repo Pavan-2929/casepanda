@@ -30,7 +30,6 @@ const SignUpPage = () => {
   const router = useRouter();
 
   const currentUser = useAppSelector((state: any) => state.user.currentUser);
-  console.log(currentUser);
 
   const [loading, setLoading] = useState(false);
 

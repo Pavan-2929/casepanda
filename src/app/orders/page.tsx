@@ -28,8 +28,6 @@ const OrderPage = () => {
     }
   };
 
-  console.log(orders);
-
   useEffect(() => {
     fetchOrder();
   }, []);

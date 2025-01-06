@@ -251,8 +251,6 @@ const AdminPage = () => {
   const [upperCounter, setUpperCounter] = useState(false);
   const [lowerCounter, setLowerCounter] = useState(false);
 
-  console.log(orders);
-
   if (loading) {
     return (
       <div className="flex justify-center my-20 min-h-screen">

@@ -8,7 +8,6 @@ export async function POST(request: Request) {
     const { email } = await request.json();
 
     const user = await UserModel.findOne({ email });
-    console.log(email);
 
     if (!user) {
       return Response.json(

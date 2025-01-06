@@ -28,7 +28,6 @@ const AdminOrderPage = ({ params }: any) => {
         id: params.id,
       });
       setOrder(response.data.order);
-      console.log(response.data.orderStatus);
 
       setDeliveryStatus(response.data.order.orderStatus);
     } catch (error) {
@@ -59,7 +58,6 @@ const AdminOrderPage = ({ params }: any) => {
         orderId: params.id,
         orderStatus: status,
       });
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

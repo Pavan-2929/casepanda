@@ -74,7 +74,6 @@ const SignInPage = () => {
         description: response.data.message,
       });
 
-      console.log(response);
     } catch (error) {
       const customError = error as AxiosError<ApiResponse>;
 
@@ -103,7 +102,6 @@ const SignInPage = () => {
         description: response.data.message,
       });
       router.push("/");
-      console.log(response);
     } catch (error) {
       console.log(error);
     } finally {

@@ -70,7 +70,6 @@ const UplaodPage = () => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setIsUploading(false);
-          console.log(downloadURL);
 
           dispatch(setImageLink({ imageLink: downloadURL }));
           setIsRedirecting(true);

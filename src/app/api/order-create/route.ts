@@ -6,8 +6,6 @@ export async function POST(request: Request) {
   try {
     const { user, product, paymentType, totalPrice } = await request.json();
 
-    console.log(user, product, paymentType);
-
     const currentDate = new Date();
     const deliveryDate = new Date(
       currentDate.getTime() + 3 * 24 * 60 * 60 * 1000

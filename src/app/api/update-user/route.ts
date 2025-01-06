@@ -5,7 +5,6 @@ export async function POST(request: Request) {
   await dbConnect();
   try {
     const { address, email } = await request.json();
-    console.log(address);
 
     const user = await UserModel.findOneAndUpdate(
       { email },

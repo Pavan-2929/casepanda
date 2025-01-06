@@ -6,7 +6,6 @@ export async function POST(request: Request) {
   try {
     const { orderId, orderStatus } = await request.json();
     const newOrder = await OrderModel.findById(orderId);
-    console.log(orderStatus);
     
 
     if (!newOrder) {
@@ -20,12 +19,10 @@ export async function POST(request: Request) {
     }
 
     newOrder.orderStatus = orderStatus;
-    console.log(newOrder.orderStatus);
     
 
     await newOrder.save();
 
-    console.log(newOrder);
     
 
     return Response.json(

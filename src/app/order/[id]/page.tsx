@@ -59,8 +59,6 @@ const OrderIdPage = ({ params }: any) => {
               .slice(index + 1)
               .some((status) => status === order.orderStatus);
 
-            console.log(currentStaus);
-
             return (
               <div key={index} className="flex gap-x-2">
                 <CircleCheckBig

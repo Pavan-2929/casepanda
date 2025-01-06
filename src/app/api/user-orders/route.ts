@@ -10,8 +10,6 @@ export async function POST(request: Request) {
 
     const orders = await OrderModel.find({ "user.email": email });
 
-    console.log(orders);
-
     return Response.json(orders);
   } catch (error) {
     console.log(error);

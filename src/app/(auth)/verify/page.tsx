@@ -34,8 +34,6 @@ const VerifyPage = () => {
         verifyCode: value,
       });
 
-      console.log(response);
-
       toast({
         title: "success",
         description: response.data.message,

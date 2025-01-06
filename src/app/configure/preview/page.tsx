@@ -31,7 +31,6 @@ const PreviewPage = () => {
   const productData = useAppSelector((state: any) => state.product.productData);
   const currentUser = useAppSelector((state: any) => state.user.currentUser);
 
-  console.log(currentUser);
 
   const handleOrder = async (e: any) => {
     if (currentUser.address === null) {
@@ -49,7 +48,6 @@ const PreviewPage = () => {
           BASE_PRICE + productData.material.price + productData.finishes.price,
       });
       setOrder(response.data.order);
-      console.log(response);
       if (paymentType === "cash") {
         toast({
           title: "success",
@@ -80,7 +78,6 @@ const PreviewPage = () => {
         id,
       });
 
-      console.log();
 
       const session = response.data;
 

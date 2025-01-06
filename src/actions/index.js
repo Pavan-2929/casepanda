@@ -10,7 +10,6 @@ export async function doCredentialLogin(formData) {
       redirect: false,
     });
 
-    console.log(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -20,7 +19,6 @@ export async function doCredentialLogin(formData) {
 export async function doLogOut() {
   try {
     await signOut();
-    console.log("Logged out");
   } catch (error) {
     console.log(error);
   }
