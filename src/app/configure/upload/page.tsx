@@ -17,6 +17,7 @@ import { setImageLink } from "@/lib/redux/features/imageSlice";
 import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress";
 import { motion } from "framer-motion";
+import PreUpload from "./PreUpload";
 
 const UplaodPage = () => {
   const [isDragOver, setIsDragOver] = useState(false);
@@ -80,73 +81,76 @@ const UplaodPage = () => {
   };
 
   return (
-    <motion.div
-      initial={{ scale: 0.9, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className={cn(
-        "h-full p-2 bg-zinc-900/5 my-[60px] rounded-sm ring-1 ring-inset ring-gray-900/10",
-        { "bg-blue-900/10 ring-blue-900/25": isDragOver }
-      )}
-    >
+    <div className="h-full p-2 my-[60px] grid lg:grid-cols-3 lg:gap-x-12 gap-y-12">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="relative"
+        className={cn(
+          "bg-zinc-900/5 col-span-2  rounded-sm ring-1 ring-inset ring-gray-900/10",
+          { "bg-blue-900/10 ring-blue-900/25": isDragOver }
+        )}
       >
-        <DropZone
-          onDragEnter={() => setIsDragOver(true)}
-          onDragLeave={() => setIsDragOver(false)}
-          onDropAccepted={onDragAccepted}
-          onDropRejected={onDropRejected}
-          accept={{
-            "image/png": [".png"],
-            "image/jpeg": [".jpeg"],
-            "image/jpg": [".jpg"],
-          }}
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="relative"
         >
-          {({ getRootProps, getInputProps }) => (
-            <div
-              {...getRootProps()}
-              className="py-32 select-none flex flex-col justify-center items-center"
-            >
-              <input {...getInputProps()} />
-              {isDragOver ? (
-                <MousePointerSquareDashed className="h-6 w-6 text-zinc-500" />
-              ) : isUploading || isRedirecting ? (
-                <Loader2 className="animate-spin w-6 h-6 text-zinc-500" />
-              ) : (
-                <Image className="text-zinc-500 h-6 w-6" />
-              )}
-              <div className="text-gray-700 my-2">
-                {isUploading ? (
-                  <div className="flex flex-col mx-auto text-center justify-center gap-y-2">
-                    <p>Uploding...</p>
-                    <Progress
-                      value={uploadProgress}
-                      className="text-primary bg-gray-300 w-40"
-                    />
-                  </div>
-                ) : isRedirecting ? (
-                  <div>Redircting | Please wait</div>
+          <DropZone
+            onDragEnter={() => setIsDragOver(true)}
+            onDragLeave={() => setIsDragOver(false)}
+            onDropAccepted={onDragAccepted}
+            onDropRejected={onDropRejected}
+            accept={{
+              "image/png": [".png"],
+              "image/jpeg": [".jpeg"],
+              "image/jpg": [".jpg"],
+            }}
+          >
+            {({ getRootProps, getInputProps }) => (
+              <div
+                {...getRootProps()}
+                className="py-32 select-none flex flex-col justify-center items-center"
+              >
+                <input {...getInputProps()} />
+                {isDragOver ? (
+                  <MousePointerSquareDashed className="h-6 w-6 text-zinc-500" />
+                ) : isUploading || isRedirecting ? (
+                  <Loader2 className="animate-spin w-6 h-6 text-zinc-500" />
                 ) : (
-                  <div>
-                    <p className="text-[15px] font-medium tracking-wide">
-                      <span className="font-semibold">Click to Upload</span> or
-                      drag and drop
-                    </p>
-                  </div>
+                  <Image className="text-zinc-500 h-6 w-6" />
                 )}
+                <div className="text-gray-700 my-2">
+                  {isUploading ? (
+                    <div className="flex flex-col mx-auto text-center justify-center gap-y-2">
+                      <p>Uploding...</p>
+                      <Progress
+                        value={uploadProgress}
+                        className="text-primary bg-gray-300 w-40"
+                      />
+                    </div>
+                  ) : isRedirecting ? (
+                    <div>Redircting | Please wait</div>
+                  ) : (
+                    <div>
+                      <p className="text-[15px] font-medium tracking-wide">
+                        <span className="font-semibold">Click to Upload</span>{" "}
+                        or drag and drop
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <p className="text-gray-500  tracking-tight text-[15px]">
+                  PNG, JPG or JPEG{" "}
+                </p>
               </div>
-              <p className="text-gray-500  tracking-tight text-[15px]">
-                PNG, JPG or JPEG{" "}
-              </p>
-            </div>
-          )}
-        </DropZone>
+            )}
+          </DropZone>
+        </motion.div>
       </motion.div>
-    </motion.div>
+      <PreUpload />
+    </div>
   );
 };
 
