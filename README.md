@@ -1,8 +1,5 @@
 # 📱 iPhone Case Cover Website with Admin Panel  
 
-🔗 **Live:** [View Project](https://casepanda-29.vercel.app)  
-🔗 **GitHub:** [View Repository](https://github.com/Pavan-2929/casepanda)  
-
 ---
 
 ## 🚀 Features  
