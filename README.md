@@ -1,7 +1,5 @@
 # 📱 iPhone Case Cover Website with Admin Panel  
 
----
-
 ## 🚀 Features  
 
 ### 🔐 Authentication  
