@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📱 iPhone Case Cover Website with Admin Panel  
 
-## Getting Started
+## 🚀 Features  
 
-First, run the development server:
+### 🔐 Authentication  
+- Secure login system using **Next-Auth V5**.  
+- **OTP email verification** and **password recovery** for enhanced security.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 📦 Order Management  
+- **Admins can track order status** through different stages:  
+  - **Pending → Confirmed → Shipped → Delivered**.  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🖼 Image Uploads  
+- **Drag-and-drop** image upload system.  
+- Uses **Firebase Storage** for efficient and secure file handling.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🛍 Customizable Order Process  
+- **3-step ordering system** allowing users to choose:  
+  - **Color, model, and material** of their case.  
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### ⚡ Optimized State Management  
+- Built using **Redux** for efficient state handling.  
+- **Redux-Persist** minimizes unnecessary database calls by caching data.  
 
-## Learn More
+### 📊 Admin Dashboard  
+- **Admins can manage orders** and view analytics.  
+- Integrated **bar charts and pie charts** for better insights (using **Recharts**).  
 
-To learn more about Next.js, take a look at the following resources:
+### 💳 Payment System  
+- Dual payment options: **Cash & Card** (via **Stripe**).  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🎨 UI & UX  
+- **Fully responsive design** for all devices.  
+- **Smooth animations** and a clean, intuitive user interface.  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠 Tech Stack  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Frontend:** Next.js, Tailwind CSS, ShadCN UI  
+- **State Management:** Redux, Redux-Persist  
+- **Database:** MongoDB  
+- **Authentication:** Next-Auth V5  
+- **Payments:** Stripe  
+- **Charts & Analytics:** Recharts  
+- **Storage:** Firebase  
