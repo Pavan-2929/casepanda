@@ -11,7 +11,7 @@ const HomePage = () => {
   const router = useRouter();
   return (
     <div className="bg-slate-50">
-      <section className="my-[5%]">
+      <section className="py-[5%] ">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between px-4 md:px-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -151,7 +151,7 @@ const HomePage = () => {
           </div>
         </motion.div>
       </section>
-      <section className="max-w-7xl mx-auto px-4 md:px-14 my-[5%]">
+      <section className="max-w-7xl mx-auto px-4 md:px-14 py-[5%]">
         <div className="text-center">
           <motion.h1
             initial={{ scale: 0.9, opacity: 0 }}
